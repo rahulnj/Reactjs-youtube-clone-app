@@ -1,6 +1,9 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 
+import './_app.scss'
+
+
 ///components
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
@@ -15,9 +18,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="app_container">
+      <div className="app_container border border-info">
         <Sidebar />
-        <Container fluid className='app_main'>
+        <Container fluid className='app_main border border-warning'>
           <HomeScreen />
         </Container>
       </div>
