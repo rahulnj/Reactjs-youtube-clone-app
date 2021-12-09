@@ -11,7 +11,11 @@ const KeyWords = [
     'Music',
     'Cricket',
     'Football',
-    'Action'
+    'Action',
+    'Songs',
+    'Baseball',
+    'Books',
+    'Lifestyle'
 ]
 
 const CategoriesBar = () => {
