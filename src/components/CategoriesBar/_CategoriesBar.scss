@@ -20,9 +20,17 @@ span{
     white-space: nowrap;
     border:1.5px solid $text-color;
     border-radius: 999px;
+    cursor: pointer;
 
-&:hover{
-background-color:#374a59;
+    &:hover{
+    background-color:#374a59;
+    }
+   
+    &.active{
+        color: #fff;
+        background-color: #606060;
+        border-color: $border-color;
+       
     }
   }
 }
