@@ -1,7 +1,6 @@
 import React from 'react'
 import './_Video.scss'
 
-import { AiFillEye } from 'react-icons/ai'
 
 const Video = () => {
     return (
