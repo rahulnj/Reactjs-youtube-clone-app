@@ -29,12 +29,7 @@ position: relative;
         margin-bottom: 1.6px;
 
         color: #fff;
-overflow: hidden;
-display: -webkit-box;
--webkit-line-clamp: 1;
--webkit-box-orient: vertical;
-
-
+       @include line-limit(1);
         img{
             width: 36px; 
             height: 36px;

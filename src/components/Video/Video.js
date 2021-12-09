@@ -12,7 +12,7 @@ const Video = () => {
             </div>
             <div className="video_title">
                 <img src="https://yt3.ggpht.com/ytc/AKedOLTcIl6kKt3lEPJEySUf_hpHiKDKiFeo9eWPReLysQ=s68-c-k-c0x00ffffff-no-rj" alt="" />
-                How to be a frontend developer in 2021
+                How to be a frontend developer
             </div>
             <div className='video_wrap'>
                 <div className="video_channel">
