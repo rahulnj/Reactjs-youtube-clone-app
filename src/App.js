@@ -10,7 +10,8 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 
 ///pages///
-import HomeScreen from './pages/HomeScreen'
+import HomeScreen from './pages/HomeScreen/HomeScreen'
+import LoginScreen from './pages/LoginScreen/LoginScreen'
 
 
 
@@ -23,15 +24,16 @@ const App = () => {
 
 
   return (
-    <>
-      <Header handleToggleSidebar={handleToggleSidebar} />
-      <div className="app_container">
-        <Sidebar sidebar={sidebar} handleToggleSidebar={handleToggleSidebar} />
-        <Container fluid className='app_main '>
-          <HomeScreen />
-        </Container>
-      </div>
-    </>
+    // <>
+    //   <Header handleToggleSidebar={handleToggleSidebar} />
+    //   <div className="app_container">
+    //     <Sidebar sidebar={sidebar} handleToggleSidebar={handleToggleSidebar} />
+    //     <Container fluid className='app_main '>
+    //       <HomeScreen />
+    //     </Container>
+    //   </div>
+    // </>
+    <LoginScreen />
   )
 }
 
