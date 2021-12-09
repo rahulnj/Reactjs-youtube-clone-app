@@ -11,20 +11,21 @@ const Video = () => {
                 <span>03:00</span>
             </div>
             <div className="video_title">
-                How to be a frontend developer
-            </div>
-            <div className="video_details">
-                <span>
-                    <AiFillEye /> 3.3m Views •
-                </span>
-                <span>
-                    5 days ago
-                </span>
-            </div>
-            <div className="video_channel">
                 <img src="https://yt3.ggpht.com/ytc/AKedOLTcIl6kKt3lEPJEySUf_hpHiKDKiFeo9eWPReLysQ=s68-c-k-c0x00ffffff-no-rj" alt="" />
-                <p>Codepen</p>
+                How to be a frontend developer in 2021
             </div>
+            <div className='video_wrap'>
+                <div className="video_channel">
+                    <p>Codepen</p>
+                </div>
+                <div className="video_details">
+                    <span>
+                        3.3m Views •
+                        5 days ago
+                    </span>
+                </div>
+            </div>
+
         </div>
     )
 }

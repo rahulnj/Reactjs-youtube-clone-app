@@ -29,17 +29,11 @@ position: relative;
         margin-bottom: 1.6px;
 
         color: #fff;
-    }
+overflow: hidden;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
 
-    &_details{
-        display: flex;
-        align-items: center;
-    }
-
-    &_channel{
-        display: flex;
-        align-items: center;
-        margin: 8px 0;
 
         img{
             width: 36px; 
@@ -49,11 +43,32 @@ position: relative;
             margin-right: 8px;
             cursor: pointer;
         }
+    }
+
+    &_details{
+        display: flex;
+        align-items: center;
+        // margin-left: 3rem;
+        font-size: 1rem;
+        
+   span{
+   font-size: 0.75rem;
+       }
+    }
+
+    &_channel{
+        // margin-left: 3rem;
+        padding-top: 1rem;
+    
         p{
+            font-size: 0.8rem;
             margin-bottom: 0;
         }
     }
-
+&_wrap{
+    padding-bottom: 1rem;
+    padding-left: 2.5rem;
+}
     
 }
 
