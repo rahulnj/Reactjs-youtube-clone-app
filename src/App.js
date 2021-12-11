@@ -13,7 +13,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import HomeScreen from './pages/HomeScreen/HomeScreen'
 import LoginScreen from './pages/LoginScreen/LoginScreen'
 
-import { BrowserRouter as Router, Routes, Route, Switch, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const Layout = ({ children }) => {
   const [sidebar, setSidebar] = useState(false)
