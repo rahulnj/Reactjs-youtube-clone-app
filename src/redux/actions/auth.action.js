@@ -6,6 +6,7 @@ import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from 
 export const login = () => dispatch => {
 
     const provider = new GoogleAuthProvider();
+    provider.addScope = ("https://www.googleapis.com/auth/youtube.force-ssl")
     try {
         dispatch({
             type: LOGIN_REQUEST
@@ -58,6 +59,6 @@ export const logOut = () => dispatch => {
         sessionStorage.removeItem("ytc-user")
 
     }).catch((error) => {
-        // An error happened.
+        console.log(error);
     });
 }
