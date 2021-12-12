@@ -1,26 +1,67 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import request from '../../api'
 import './_Video.scss'
 
+import moment from 'moment'
+import numeral from 'numeral'
 
-const Video = () => {
+const Video = ({ video }) => {
+
+    const { id, snippet: { channelId, title, channelTitle, publishedAt, thumbnails: { medium } } } = video
+    const [views, setViews] = useState(null)
+    const [duration, setDuration] = useState(null)
+    const [channelIcon, setChannelIcon] = useState(null)
+
+    const seconds = moment.duration(duration).asSeconds()
+    const formatedDuration = moment.utc(seconds * 1000).format("mm:ss")
+
+    useEffect(() => {
+        const get_video_details = async () => {
+            const { data: { items } } = await request.get('/videos', {
+                params: {
+                    part: 'contentDetails,statistics',
+                    id: id,
+                }
+            })
+            setDuration(items[0].contentDetails.duration)
+            setViews(items[0].statistics.viewCount)
+        }
+        get_video_details()
+    }, [id])
+
+    useEffect(() => {
+        const get_channel_icon = async () => {
+            const { data: { items }
+            } = await request.get('/channels', {
+                params: {
+                    part: 'snippet',
+                    id: channelId,
+                }
+            })
+            setChannelIcon(items[0].snippet.thumbnails.default)
+        }
+        get_channel_icon()
+    }, [channelId])
+
+
+
     return (
         <div className="video">
             <div className="video_top">
-                <img src="https://i.ytimg.com/vi/0L8cQ9nRtuE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC39C4XSt2SEPYW_JM16E0wi4nkkg" alt="" />
-                <span>03:00</span>
+                <img src={medium.url} alt="" />
+                <span>{formatedDuration}</span>
             </div>
             <div className="video_title">
-                <img src="https://yt3.ggpht.com/ytc/AKedOLTcIl6kKt3lEPJEySUf_hpHiKDKiFeo9eWPReLysQ=s68-c-k-c0x00ffffff-no-rj" alt="" />
-                How to be a frontend developer
+                <img src={channelIcon?.url} alt="" />
+                {title}
             </div>
             <div className='video_wrap'>
                 <div className="video_channel">
-                    <p>Codepen</p>
+                    <p>{channelTitle}</p>
                 </div>
                 <div className="video_details">
                     <span>
-                        3.3m Views •
-                        5 days ago
+                        {numeral(views).format("0.a")} Views • {moment(publishedAt).fromNow()}
                     </span>
                 </div>
             </div>
