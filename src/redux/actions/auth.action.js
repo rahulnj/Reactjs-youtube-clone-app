@@ -15,12 +15,10 @@ export const login = () => dispatch => {
 
         signInWithPopup(auth, provider)
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const accessToken = credential.accessToken;
 
                 console.log(result);
-                // The signed-in user info.
                 const profile = {
                     name: result.user.displayName,
                     photoURL: result.user.photoURL
