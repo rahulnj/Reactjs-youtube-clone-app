@@ -13,6 +13,8 @@ import Sidebar from './components/Sidebar/Sidebar'
 ///pages///
 import HomeScreen from './pages/HomeScreen/HomeScreen'
 import LoginScreen from './pages/LoginScreen/LoginScreen'
+import WatchScreen from './pages/WatchScreen/WatchScreen';
+
 
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -70,11 +72,16 @@ const App = () => {
           </Layout>
         }>
         </Route>
-        <Route path="*" element={
+        <Route exact path="/watch/:id" element={
+          <Layout>
+            <WatchScreen />
+          </Layout>
+        } />
+        {/* <Route path="*" element={
           <Layout>
             <HomeScreen />
           </Layout>
-        } />
+        } /> */}
       </Routes>
 
     </div >
