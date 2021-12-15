@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import request from '../../api'
 import './_Video.scss'
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import moment from 'moment'
 import numeral from 'numeral'
 
@@ -53,11 +53,13 @@ const Video = ({ video }) => {
     return (
         <div className="video">
             <div className="video_top">
-                <img src={medium.url} alt="" />
-                <span>{formatedDuration}</span>
+                {/* <img src={medium.url} alt="" /> */}
+                <LazyLoadImage src={medium.url} effect='blur' />
+                <span className='video_top_duration'>{formatedDuration}</span>
             </div>
             <div className="video_title">
-                <img src={channelIcon?.url} alt="" />
+                {/* <img src={channelIcon?.url} alt="" /> */}
+                <LazyLoadImage src={channelIcon?.url} />
                 {title}
             </div>
             <div className='video_wrap'>
