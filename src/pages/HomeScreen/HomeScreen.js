@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import CategoriesBar from '../../components/CategoriesBar/CategoriesBar'
 import Video from '../../components/Video/Video'
 import { getPopularVideos, getVideosByCategory } from '../../redux/actions/videos.action'
-
+import SkeletonVideo from '../../components/Skeletons/SkeletonVideo'
 
 
 
@@ -16,7 +16,7 @@ const HomeScreen = () => {
         dispatch(getPopularVideos())
     }, [dispatch])
 
-    const { videos, activeCategory } = useSelector(state => state.homeVideos)
+    const { videos, activeCategory, loading } = useSelector(state => state.homeVideos)
 
     const fetchData = () => {
         if (activeCategory === 'All') {
@@ -40,12 +40,16 @@ const HomeScreen = () => {
                     <div className='spinner-border text-danger d-block mx-auto' />
                 } className='row'>
 
-                {videos.map((video) => (
+                {!loading ? videos.map((video) => (
                     <Col lg={3} md={4} >
                         <Video video={video} key={video.id} />
                     </Col>
-                ))}
-
+                ))
+                    : [...Array(20)].map(() => (
+                        <Col lg={3} md={4} >
+                            <SkeletonVideo />
+                        </Col>
+                    ))}
             </InfiniteScroll>
 
         </Container >
