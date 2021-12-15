@@ -77,11 +77,11 @@ const App = () => {
             <WatchScreen />
           </Layout>
         } />
-        {/* <Route path="*" element={
+        <Route path="*" element={
           <Layout>
             <HomeScreen />
           </Layout>
-        } /> */}
+        } />
       </Routes>
 
     </div >
