@@ -11,6 +11,11 @@
     padding-top: 2rem;
 
     transition: transform 0.2s ease-in;
+position: sticky;
+top: 10vh;
+left: 0;
+
+
     li{
         transition-timing-function: ease-in;
         transition:all 0.2s;

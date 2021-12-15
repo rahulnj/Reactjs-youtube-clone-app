@@ -15,6 +15,7 @@ const Video = ({ video }) => {
     const seconds = moment.duration(duration).asSeconds()
     const formatedDuration = moment.utc(seconds * 1000).format("mm:ss")
 
+    //To know if the id is in object form or in normal form
     const _videoId = id?.videoId || id;
 
 
