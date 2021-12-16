@@ -4,6 +4,7 @@ import './_Video.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import moment from 'moment'
 import numeral from 'numeral'
+import { useNavigate } from 'react-router';
 
 const Video = ({ video }) => {
 
@@ -14,7 +15,7 @@ const Video = ({ video }) => {
 
     const seconds = moment.duration(duration).asSeconds()
     const formatedDuration = moment.utc(seconds * 1000).format("mm:ss")
-
+    const navigate = useNavigate();
     //To know if the id is in object form or in normal form
     const _videoId = id?.videoId || id;
 
@@ -48,10 +49,14 @@ const Video = ({ video }) => {
         get_channel_icon()
     }, [channelId])
 
+    const handleVideoClick = () => {
+        console.log(_videoId);
+        navigate(`/watch/${_videoId}`)
+    }
 
 
     return (
-        <div className="video">
+        <div className="video" onClick={handleVideoClick}>
             <div className="video_top">
                 {/* <img src={medium.url} alt="" /> */}
                 <LazyLoadImage src={medium.url} effect='blur' />
