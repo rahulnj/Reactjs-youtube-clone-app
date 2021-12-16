@@ -5,23 +5,27 @@ import numeral from 'numeral'
 import { MdThumbDown, MdThumbUp } from 'react-icons/md'
 import ReactShowMoreText from 'react-show-more-text'
 
-function VideoMetaData() {
+function VideoMetaData({ video: { snippet, statistics }, videoId }) {
+    const { channelId, channelTitle, description, title, publishedAt } = snippet
+    const { viewCount, likeCount, dislikeCount } = statistics
+
+
     return (
         <div className="videoMetaData py-2">
             <div className="videoMetaData_top">
-                <h5>Video Tittle</h5>
+                <h5>{title}</h5>
                 <div className='d-flex justify-content-between align-items-center py-1'>
                     <span>
-                        {numeral(10000).format('0.a')} Views •
-                        {moment('2020-06-6').fromNow()}
+                        {numeral(viewCount).format('0.a')} Views •
+                        {moment(publishedAt).fromNow()}
                     </span>
 
                     <div>
                         <span >
-                            <MdThumbUp size={26} />{numeral(10000).format('0.a')}
+                            <MdThumbUp size={26} />{numeral(likeCount).format('0.a')}
                         </span>
                         <span >
-                            <MdThumbDown size={26} />{numeral(10000).format('0.a')}
+                            <MdThumbDown size={26} />
                         </span>
                     </div>
                 </div>
@@ -32,7 +36,7 @@ function VideoMetaData() {
                         alt="" className='rounder-circle mr-3' />
                     <div className='d-flex flex-column'>
                         <span>
-                            Backbench coder
+                            {channelTitle}
                         </span>
                         <span>
                             {numeral(10000).format('0.a')}
@@ -48,12 +52,7 @@ function VideoMetaData() {
                     less="SHOW LESS"
                     anchorClass='showMoreText'
                     expanded={false}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure explicabo impedit corrupti, nobis neque sit hic nam saepe officia fuga consequuntur aut tempore architecto ratione voluptates et necessitatibus doloribus animi! Reprehenderit illo rerum quo
-                    fugiat. Corrupti saepe laudantium ab deserunt deleniti. Quisquam maxime aut dignissimos natus aliquid quod eos esse!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure explicabo impedit corrupti, nobis neque sit hic nam saepe officia fuga consequuntur aut tempore architecto ratione voluptates et necessitatibus doloribus animi! Reprehenderit illo rerum quo
-                    fugiat. Corrupti saepe laudantium ab deserunt deleniti. Quisquam maxime aut dignissimos natus aliquid quod eos esse!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure explicabo impedit corrupti, nobis neque sit hic nam saepe officia fuga consequuntur aut tempore architecto ratione voluptates et necessitatibus doloribus animi! Reprehenderit illo rerum quo
-                    fugiat. Corrupti saepe laudantium ab deserunt deleniti. Quisquam maxime aut dignissimos natus aliquid quod eos esse!
+                    {description}
                 </ReactShowMoreText>
             </div>
         </div >
