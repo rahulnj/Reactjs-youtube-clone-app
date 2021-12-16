@@ -7,10 +7,10 @@ const SingleComment = () => {
             <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
                 alt="" className='rounder-circle mr-3' />
             <div className="comment_body">
-                <p className="comment_header">
+                <p className="comment_header mb-1">
                     Rahul • {moment('2020-06-6').fromNow()}
                 </p>
-                <p>Lets do this...</p>
+                <p className='mb-0'>Lets do this...</p>
             </div>
         </div>
     )
