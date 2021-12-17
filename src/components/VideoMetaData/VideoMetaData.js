@@ -5,7 +5,7 @@ import numeral from 'numeral'
 import { MdThumbDown, MdThumbUp } from 'react-icons/md'
 import ReactShowMoreText from 'react-show-more-text'
 import { useDispatch, useSelector } from 'react-redux'
-import { getChannelDetails } from '../../redux/actions/channel.action'
+import { checkSubscriptionStatus, getChannelDetails } from '../../redux/actions/channel.action'
 
 function VideoMetaData({ video: { snippet, statistics }, videoId }) {
     const { channelId, channelTitle, description, title, publishedAt } = snippet
@@ -15,6 +15,7 @@ function VideoMetaData({ video: { snippet, statistics }, videoId }) {
 
     useEffect(() => {
         dispatch(getChannelDetails(channelId))
+        // dispatch(checkSubscriptionStatus(channelId))
     }, [dispatch, channelId])
 
     const { snippet: channelSnippet, statistics: channelStatistics } = useSelector(state => state.channelDetails.channel)

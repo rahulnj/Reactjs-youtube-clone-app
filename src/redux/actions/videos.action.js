@@ -71,7 +71,6 @@ export const getVideosByCategory = (keyword) => async (dispatch, getState) => {
 
 }
 export const getVideoById = (id) => async dispatch => {
-    console.log(id);
     try {
 
         dispatch({

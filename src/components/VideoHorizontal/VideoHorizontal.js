@@ -1,6 +1,5 @@
 import React from 'react'
 import './VideoHorizontal.scss'
-import request from '../../api'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import moment from 'moment'
 import numeral from 'numeral'
