@@ -12,7 +12,7 @@ function VideoMetaData({ video: { snippet, statistics }, videoId }) {
     const { viewCount, likeCount } = statistics
 
     const dispatch = useDispatch()
-
+    console.log(channelId);
     useEffect(() => {
         dispatch(getChannelDetails(channelId))
         // dispatch(checkSubscriptionStatus(channelId))
