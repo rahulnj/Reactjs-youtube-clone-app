@@ -19,6 +19,7 @@ import WatchScreen from './pages/WatchScreen/WatchScreen';
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import SearchScreen from './pages/SearchScreen/SearchScreen';
+import Subscriptions from './pages/SubscriptionScreen/SubscriptionScreen';
 
 const Layout = ({ children }) => {
   const [sidebar, setSidebar] = useState(false)
@@ -76,6 +77,11 @@ const App = () => {
         <Route exact path="/watch/:id" element={
           <Layout>
             <WatchScreen />
+          </Layout>
+        } />
+        <Route exact path="/feed/subscriptions" element={
+          <Layout>
+            <Subscriptions />
           </Layout>
         } />
         <Route path="*" element={

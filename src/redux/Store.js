@@ -5,7 +5,7 @@ import thunk from 'redux-thunk'
 
 import { authReducer } from './reducers/auth.reducer'
 import { homeVideosReducer, selectedVideoReducer, relatedVideoReducer, searchVideoReducer } from './reducers/video.reducer'
-import { channelDetailsReducer } from './reducers/channel.reducer'
+import { channelDetailsReducer, subscriptionsChannelReducer } from './reducers/channel.reducer'
 import { commentListReducer } from './reducers/comments.reducer'
 
 const rootReducer = combineReducers({
@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
     channelDetails: channelDetailsReducer,
     commentList: commentListReducer,
     relatedVideos: relatedVideoReducer,
-    searchVideos: searchVideoReducer
+    searchVideos: searchVideoReducer,
+    subscriptionChannel: subscriptionsChannelReducer
 })
 
 
