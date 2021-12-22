@@ -63,8 +63,8 @@ export const getSubscriptionChannel = () => async (dispatch, getState) => {
             type: SUBSCRIPTIONS_CHANNEL_REQUEST
         })
 
-        const { data } = await request('/subscriptions', {
-
+        console.log(getState().auth.accessToken);
+        const { data } = await request.post('/subscriptions', {
             params: {
                 part: 'snippet,contentDetails',
                 mine: true
