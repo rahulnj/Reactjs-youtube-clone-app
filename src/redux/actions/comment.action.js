@@ -41,7 +41,7 @@ export const addComment = (id, text) => async (dispatch, getState) => {
         }
 
 
-        //sending the comment is also giving a authorization error
+        //the comment is also giving a authorization error
         const { data } = await request.post('/commentThreads', obj, {
             params: {
                 part: 'snippet',
