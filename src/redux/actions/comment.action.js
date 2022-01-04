@@ -65,40 +65,4 @@ export const addComment = (id, text) => async (dispatch, getState) => {
 }
 
 //rm the code
-export const addComment = (id, text) => async (dispatch, getState) => {
 
-    try {
-        const obj = {
-            snippet: {
-                videoId: id,
-                topLevelComment: {
-                    snippet: {
-                        textOriginal: text,
-                    }
-                }
-            }
-        }
-
-
-        //the comment is also giving a authorization error
-        const { data } = await request.post('/commentThreads', obj, {
-            params: {
-                part: 'snippet',
-            },
-            headers: {
-                Authorization: `Bearer ${getState().auth.accessToken}`
-            }
-        })
-        dispatch({
-            type: CREATE_COMMENT_SUCCESS,
-
-        })
-
-    } catch (error) {
-        console.log(error.response.data);
-        dispatch({
-            type: CREATE_COMMENT_FAIL,
-            payload: error.response.data.message
-        })
-    }
-}
